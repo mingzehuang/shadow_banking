@@ -1,0 +1,26 @@
+{
+    "id": "BFA9582D",
+    "path": "~/Shadow_Banking/Shadow_Banking.Rmd",
+    "project_path": "Shadow_Banking.Rmd",
+    "type": "r_markdown",
+    "hash": "4010363463",
+    "contents": "",
+    "dirty": false,
+    "created": 1606642380467.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "cursorPosition": "128,13",
+        "scrollLine": "123",
+        "working_dir": "project"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1607787027,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1607787027993,
+    "read_only": false,
+    "read_only_alternatives": []
+}

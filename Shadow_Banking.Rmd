@@ -1,0 +1,237 @@
+---
+title: "The Rise and Fall of Shadow Banking in China"
+subtitle: "Market Signaling and Optimal Regulation"
+author: "Mingze Huang"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+output:
+  ioslides_presentation: default
+  beamer_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Model
+
+- Single-period economy
+
+- a (mass 1) continuum of banks and investors plus a government.
+
+- "Safe assets": pay $y_s$ per unit of investment with probability $p_s$, $0$ otherwise.
+
+- A fraction of $\alpha$ banks have access to superior risky assets pay $y_{r}$ with probability $p_{s}$; $1-\alpha$ banks have access to inferior risky assets pay $y_{r}$ with probability $p_{r}$.
+
+- $y_{r}>y_{s}$; $p_{r}<p_{s}$.
+
+## Assumption 1 (Assets' Payoff)
+
+- $p_{s}y_{r}>p_{s}y_{s}>p_{r}y_{r}>1$ (superior risky assets pay more in expectation than safe assets, which pay in expectation more than inferior risky assets).
+
+- $p_{s}y_{s}>\alpha p_{s}y_{r}+(1-\alpha)p_{r}y_{r}$ (safe assets pay more in expectation than risky assets).
+
+- $(1+\kappa)y_{r}>(1+\kappa)y_{s}>R$ (successful assets are enough to repay R).
+
+- $p_{s}[(1+\kappa)y_{r}-R]>p_{r}[(1+\kappa)y_{r}-R]>p_{s}[(1+\kappa)y_{s}-R]$ (risk-shifting: including funding costs, it is more profitable for banks to invest always in risky assets).
+
+## Assumption 2 (Information Structure)
+
+- Banks can distinguish all asset types, the government can just distinguish between safe and risky assets (not between superior and inferior risky assets), and investors cannot distinguish any asset type.
+
+## Timing
+
+- At the beginning of period, each bank observes whether it has access to a superior or an inferior risky assets.
+
+- Then decides whether to raise funds by traditional banking or shadow banking, which offer interest rates $R_{TB}$ or $R_{SB}$.
+
+- Traditional banking subjects to capital constraint, it is forced to invest in safe assets.
+
+- Shadow banking allows bank chooses whether to invest in risky or safe assets.
+
+## Traditional Banking
+
+- Capital requirement for traditional banking: $\frac{\kappa}{\omega_{s}E(v_{s})}>\chi>\frac{\kappa}{\omega_{r}E(v_{r})}$
+  - $E(v_{s})=(1+\kappa)p_{s}y_{s}$ is expected (market) value of safe assets
+  - $E(v_{r})=(1+\kappa)(\alpha p_{s}+(1-\alpha)p_{r})y_{r}$ is expected (market) value     of risky assets (as regulator cannot identify whether the risky asset is superior or       inferior).
+  
+- Assume regulators choose $\omega_{s}$, $\omega_{r}$ and $\chi$ (given $\kappa$, $E(v_{s}$ and $E(v_{r})$) to implement risk-weighted capital requirements such that traditional banking can operate only if it invests in safe assets.
+
+## Traditional Banking
+
+- As banks have all bargaining power, investors' outside option is risk-free storage with no return. Then $R^*_{TB}=\frac{1}{p_{s}}$.
+
+- Banks' profits in traditional banking are independent of risky asset type.
+
+
+$$
+\begin{align*}
+\Pi_{TB}=&\kappa(p_{s}y_{s}-1)+p_{s}(y_{s}-R^*_{TB})\\
+=&(1+\kappa)(p_{s}y_{s}-1)
+\end{align*}
+$$
+
+## Shadow Banking
+
+- Capital requirement for shadow banking: $\frac{\kappa}{\omega_{s}[E(v_{s}-R_{SB})]}>\frac{\kappa}{\omega_{r}[E(v_{r})-R_{SB}]}>\chi$.
+
+- Fraction of banks with access to superior risky assets that participate in shadow banking as: $\chi_{s}\equiv\frac{\alpha\sigma_{F}(r_{s})}{\alpha\sigma_{F}(r_{s})+(1-\alpha)\sigma_{F}(r_{i})}$.
+
+- As Banks have all bargaining power: $R^*_{SB}=\frac{1}{\chi_{s}p_{s}+(1-\chi_{s})p_{r}}$.
+
+- If only banks with access to superior risky assets participate in shadow banking, $\chi_{s}=1$ and than $R^*_{SB|\chi_{s}=1}=R^*_{TB}$.
+
+- If only banks with access to inferior risky assets participate in shadow banking, $\chi_{s}=0$ and $R^*_{SB|x_{s}=0}=\frac{1}{p_{r}}>R^*_{TB}$. This is why $R_{SB}\in[\frac{1}{p_{s}}, \frac{1}{p_{r}}]$.
+
+## Shadow Banking
+
+- Banks' profit in shadow banking (with superior risky assets $r_{s}$, and inferior risky assets $r_{i}$, respectively).
+
+$$
+\begin{align*}
+\Pi_{SB}(r_{s})=&\kappa(p_{s}y_{r}-1)+p_{s}(y_{r}-R^*_{SB})\\
+=&p_{s}[(1+\kappa)y_{r}-R^*_{SB}]-\kappa
+\end{align*}
+$$
+
+$$
+\Pi_{SB}(r_{i})=p_{r}[(1+\kappa)y_{r}-R^*_{SB}]-\kappa
+$$
+
+## Coexistence of Traditional and Shadow Banking
+
+- Define $\Delta^+\equiv(1+\kappa)[p_{s}y_{r}-p_{s}y_{s}]$ as additional expected payoffs of investing in superior risky assets relative to investing in safe assets.
+
+- Define $\Delta^-\equiv(1+\kappa)[p_{s}y_{s}-p_{r}y_{r}]$ as additional expected payoffs of investing in safe assets relative to investing in inferior risky assets.
+
+- The equilibrium is characterized by: (i) all banks with access to superior risky assets finance in shadow banking ($\sigma^*_{F}(r_{s})=1$) and invest in those superior risky assets; and (ii) a fraction $\sigma^*_{F}(r_{i})\in(0,1)$ of banks with access to inferior risky assets finances in shadow banking and invests in those assets, while the rest finance in traditional banking and invest in safe assets.
+
+## Coexistence of Traditional and Shadow Banking
+
+- Traditional banking interest rate is $R^*_{TB}=\frac{1}{p_{s}}$ and shadow banking interest rate satisfies:
+$$
+\Delta^-=1-p_{r}R^*_{SB}(\sigma^*_{F}(r_{i}))
+$$
+
+## Proof
+
+Consider first an equilibrium with shadow banking.
+
+- There is no equilibrium in which $\sigma_{F}(r_{s})>0$ and $\sigma_{F}(r_{i})=0$. So that $\chi_{s}=1$ and $R_{TB}=R_{SB}=\frac{1}{p_{s}}$.
+
+  - Bank with superior risky assets ($r_{s}$) do not deviate (indeed $\sigma_{F}(r_{s})=1$) because
+
+$$
+\begin{align*}
+\Pi_{SB}(r_{s})=&p_{s}[(1+\kappa)y_{r}-\frac{1}{p_{s}}]-\kappa\\ 
+\Pi_{TB}=&p_{s}[(1+\kappa)y_{s}-\frac{1}{p_{s}}]-\kappa\\
+\Pi_{SB}(r_{s})>&\Pi_{TB}\hspace{.2in}\text{as}\hspace{.2in}\Delta^+>0
+\end{align*}
+$$
+
+## Proof
+
+- Bank with inferior risky assets ($r_{i}$) always deviate because
+
+$$
+\begin{align*}
+\Pi_{SB}(r_{i})=&p_{r}[(1+\kappa)y_{r}-\frac{1}{p_{s}}]-\kappa\\
+\Pi_{TB}=&p_{s}[(1+\kappa)y_{s}-\frac{1}{p_{s}}]-\kappa\\
+\Pi_{SB}(r_{i})>&\Pi_{TB}
+\end{align*}
+$$
+
+- According to risk-shifting Assumption 1, point (iv).
+- This implies that full separation is not an equilibrium because banks with access to inferior risky assets would rather raise funds in shadow banking at the same rates that apply in traditional banking and avoid regulation.
+
+## Proof
+
+Then consider an equilibrium with shadow banking should involve the participation of banks with inferior risky assets ($r_{i}$).
+
+- As $\sigma_{F}(r_{i})>0$, banks with superior risky assets ($r_{s}$) are always more profitable than banks with inferior risky assets ($r_{i}$) on shadow banking market because
+
+$$
+\begin{align*}
+\Pi_{SB}(r_{s})=&\kappa(p_{s}y_{r}-1)+p_{s}(y_{r}-R^*_{SB})\\
+=&p_{s}[(1+\kappa)y_{r}-R^*_{SB}]-\kappa\\
+\Pi_{SB}(r_{i})=&p_{r}[(1+\kappa)y_{r}-R^*_{SB}]-\kappa\\
+\Pi_{SB}(r_{s})>&\Pi_{SB}(r_{i})
+\end{align*}
+$$
+- According to Assumption 1, point (iv).
+
+- Indeed $\sigma^*_{F}(r_{s})=1$.
+
+## Proof
+
+- The optimal strategy $\sigma^*_{F}(r_{i})$ is determined by the point at which banks with inferior risky assets ($r_{i}$) weakly prefer to participate in shadow banking:
+
+$$
+\begin{align*}
+\Pi_{SB}(r_{i}|\sigma^*_{F}(r_{i}))=&p_{r}[(1+\kappa)y_{r}-R^*_{SB}(\sigma^*_{F}(r_{i}))]-\kappa\\
+\Pi_{TB}=&p_{s}[(1+\kappa)y_{s}-\frac{1}{p_{s}}]-\kappa\\
+\Pi_{SB}(r_{i}|\sigma^*_{F}(r_{i}))\geq &\Pi_{TB}
+\end{align*}
+$$
+
+or
+$$
+R^*_{SB}(\sigma^*_{F}(r_{i}))\leq\frac{1-\Delta^-}{p_{r}}
+$$
+
+## Proof
+
+- In equilibrium, $\sigma^*_{F}(r_{i})<1$. Otherwise $R^*_{SB}(\sigma_{F}(r_{i})=1)=\frac{1}{\alpha p_{s}+(1-\alpha)p_{r}}$ and by Assumption 1, point (ii), $\Delta^->1-p_{r}\frac{1}{\alpha p_{s}+(1-\alpha)p_{r}}$.
+
+- This implies that an equilibrium with pooling in shadow banking (hence, without traditional banking) does not exist. In words, if all banks with inferior risky assets ($r_{i}$) participate in shadow banking, the rate is so high that some banks with inferior risky assets ($r_{i}$) prefer to deviate and be regulated in traditional banking.
+
+## Wealth Management Subsidiary
+
+Suppose banks' type can be fully observed if they participate in shadow banking through wealth management subsidiary.
+
+- All banks with superior risky assets will participate in shadow banking through wealth management subsidiary because:
+
+$$
+\begin{align*}
+R^W_{SB}(r_{s})=&\frac{1}{p_{s}}\\
+\Pi^W_{SB}(r_{s})=&p_{s}[(1+\kappa)-\frac{1}{p_{s}}]-\kappa\\
+\Pi_{SB}(r_{s})=&\kappa(p_{s}y_{r}-1)+p_{s}(y_{r}-R^*_{SB})\\
+=&p_{s}[(1+\kappa)y_{r}-R^*_{SB}]-\kappa\\
+\Pi_{TB}=&p_{s}[(1+\kappa)y_{s}-\frac{1}{p_{s}}]-\kappa
+\end{align*}
+$$
+
+
+## Wealth Management Subsidiary
+
+$$
+\begin{align*}
+\Pi^W_{SB}(r_{s})>&\Pi_{TB}\\
+\Pi^W_{SB}(r_{s})\geq&\Pi_{SB}(r_{s})
+\end{align*}
+$$
+
+- This implies that banks with superior risky assets ($r_{s}$) tend to signal their assets type on shadow banking market lower financing cost as return on risky assets is always higher than safe assets.
+
+
+
+## Wealth Management Subsidiary
+
+
+- Since there is no superior risky assets on shadow banking market outside wealth management channel, $R^*_{SB}=\frac{1}{p_{r}}$.
+
+- All banks with inferior risky assets ($r_{i}$) would prefer to investing in safe assets and be regulated in traditional bank because
+
+$$
+\begin{align*}
+\Pi_{SB}(r_{i})=&p_{r}[(1+\kappa)y_{r}-\frac{1}{p_{r}}]-\kappa\\
+\Pi_{TB}=&p_{s}[(1+\kappa)y_{s}-\frac{1}{p_{s}}]-\kappa\\
+\Pi_{SB}(r_{i})< &\Pi_{TB}
+\end{align*}
+$$
+
+
+## Wealth Management Subsidiary
+
+This implies that banks with inferior risky assets ($r_{i}$) would exit shadow banking market due to high financing cost once the market reveals their assets type.
